@@ -65,7 +65,11 @@ fun Router(
   LaunchedEffect(window.location.hash) {
     if (window.location.hash.length < 2) {
       console.log("Setting hash to default")
-      window.location.hash = defaultPath.pathToHash(defaultParams)
+      val newUrl = URL(defaultPath.pathToHash(defaultParams), base = window.location.origin)
+
+      currentPath = defaultPath
+      currentParams = defaultParams
+      window.history.replaceState(null, "", newUrl.toString())
     }
   }
 
