@@ -69,8 +69,14 @@ private fun ProjectPage(project: Project) {
         Text(project.name)
       }
       H4 {
-        A(project.url, { target(ATarget.Blank) }) {
-          Text(LocalTextResources.current["website"])
+        project.url?.let {
+          A(it, { target(ATarget.Blank) }) {
+            Text(LocalTextResources.current["website"])
+          }
+          Text(" - ")
+        }
+        A(project.repo, { target(ATarget.Blank) }) {
+          Text(LocalTextResources.current["repo"])
         }
       }
     }
