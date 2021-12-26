@@ -17,7 +17,9 @@ external fun encodeURIComponent(value: String): String
 private fun String.urlEncode() = encodeURIComponent(this)
 private fun String.urlDecode() = decodeURIComponent(this)
 
-private fun String.toParams(): Map<String, String> {
+typealias Params = Map<String, String>
+
+private fun String.toParams(): Params {
   if (length < 2) {
     return emptyMap()
   }
@@ -28,7 +30,7 @@ private fun String.toParams(): Map<String, String> {
     .associate { it[0].urlDecode() to it[1].urlDecode() }
 }
 
-private fun Map<String, String>.toQueryParams(): String {
+private fun Params.toUrlQuery(): String {
   return if (isEmpty()) {
     ""
   } else {
@@ -38,13 +40,23 @@ private fun Map<String, String>.toQueryParams(): String {
   }
 }
 
-fun goTo(path: String, params: Map<String, String> = emptyMap()) {
-  window.location.hash = "#${path}${params.toQueryParams()}"
+private fun String.pathToHash(params: Params = emptyMap()) = "#$this${params.toUrlQuery()}"
+
+private fun String.hashToPath(): Pair<String, Params> {
+  val path = removePrefix("#")
+  val url = URL("https://wardellbagby.com/${path}")
+
+  return url.pathname.removePrefix("/") to url.search.toParams()
+}
+
+fun goTo(path: String, params: Params = emptyMap()) {
+  window.location.hash = path.pathToHash(params)
 }
 
 @Composable
 fun Router(
   defaultPath: String,
+  defaultParams: Params = emptyMap(),
   children: @Composable (currentPath: String, params: Map<String, String>) -> Unit
 ) {
   var currentPath by remember { mutableStateOf(window.location.hash) }
@@ -53,17 +65,16 @@ fun Router(
   LaunchedEffect(window.location.hash) {
     if (window.location.hash.length < 2) {
       console.log("Setting hash to default")
-      window.location.hash = "#${defaultPath}"
+      window.location.hash = defaultPath.pathToHash(defaultParams)
     }
   }
 
   DisposableEffect("hashchange") {
     val listener: (Event?) -> Unit = {
-      val path = window.location.hash.removePrefix("#")
-      val url = URL("https://wardellbagby.com/${path}")
+      val (path, params) = window.location.hash.hashToPath()
 
-      currentPath = url.pathname.removePrefix("/")
-      currentParams = url.search.toParams()
+      currentPath = path
+      currentParams = params
 
       console.log(currentPath, currentParams.toString())
     }
