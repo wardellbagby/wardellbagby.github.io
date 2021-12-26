@@ -1,7 +1,8 @@
 {
   "header_title": "Wardell Bagby",
   "header_subtitle": "The second most famous Wardell you know!",
-  "unknown_blurb": "Hey there! There's nothing particularly interesting here. Sorry about that!",
+  "unknown_blurb": "Hey there! You've ended up somewhere I never intended for you to reach, so here's a cute picture as a reward.",
+  "unknown_load_failure": "Wow, you double-lucked out. I also failed to load the picture.",
   "home_blurb": [
     "Hey! I'm Wardell Bagby; an Android developer who also dabbles in JS for fun. I know that's a twisted idea of fun but I digress.",
     "I'm also super into open source, St. Louis style pizza, and reassembling things with less screws than they started with."
@@ -26,5 +27,7 @@
   ],
   "projects": "Projects",
   "website": "Website",
-  "home": "Home"
+  "home": "Home",
+  "repo": "Repository",
+  "take_me_home": "Take me home!"
 }
