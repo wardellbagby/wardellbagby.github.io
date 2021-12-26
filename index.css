@@ -1,0 +1,18 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --background-color: #fafafa;
+  --card-background-color: #e0e0e0;
+}
+
+/* Indigo Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background-color: #212121;
+    --card-background-color: #424242;
+  }
+}
+
+:root {
+  --primary: #00bcd4;
+}

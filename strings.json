@@ -1,0 +1,18 @@
+{
+  "header_title": "Wardell Bagby",
+  "header_subtitle": "The second most famous Wardell you know!",
+  "unknown_blurb": "Hey there! There's nothing particularly interesting here. Sorry about that!",
+  "home_blurb": [
+    "Hey! I'm Wardell Bagby; an Android developer who also dabbles in JS for fun. I know that's a twisted idea of fun but I digress.",
+    "I'm also super into open source, St. Louis style pizza, and reassembling things with less screws than they started with."
+  ],
+  "lyricistant_short_desc": "A helpful writing assistant for lyricists!",
+  "lyricistant_long_desc": "Lyricistant is a writing app geared toward helping you write lyrics, poetry, or anything else you desire!\n\nUnlike other apps with a focus on rhyming, Lyricistant is first and foremost a writing app. It's made for you to use to write your lyrics, while offering helpful features to keep you in the writing zone.\n\nThis is where I spend most of my free time; thinking of cool new features for this. It's my little baby monorepo. Can you believe an Android, iOS, Web, and Electron app all build out of this one codebase?! That's a difficult problem to solve for one person from scratch!",
+  "sea_short_desc": "An excuse to use cool stuff together in a not cool project.",
+  "sea_long_desc": "Back in the throes of 2020, I decided I wanted to see what it would look like if I combined Square's Workflow library, Square's Anvil library, and Jetpack Compose all together in one brand new app. This was the result of that endeavor.\n\nTry not to fault me too hard for its relative simplicity and not totally adhering to the standards of the time; think of it more as a casual weekend project that I will probably never update, because that's what it is.",
+  "wardellbagby_short_desc": "The website you're viewing right now, written in Jetpack Compose for Web!",
+  "wardellbagby_long_desc": "Mostly an excuse to use Jetpack Compose for Web. I've written quite a lot of React in the last few years, and even more Kotlin, so the idea of writing a website using effectively both of those skills combined seemed like a dream come true.\n\nThat being said, I personally feel that Kotlin/JS is a poor substitute for Typescript as Kotlin's type system isn't verbose enough to truly express all of the weirdness that exists in the Javascript ecosystem. Plus, the fact that you have to use Gradle to use Kotlin/JS is a bit of a turn off.\n\nAs far as the website itself, I've got to say it was pretty pleasant to have the power of the Kotlin stdlib when writing it. Jetpack Compose is still wonderful, even with the limitations of Kotlin/JS.\n\nMaybe I'll port this to Workflows/JS whenever that happens.",
+  "projects": "Projects",
+  "website": "Website",
+  "home": "Home"
+}
