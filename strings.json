@@ -29,5 +29,17 @@
   "website": "Website",
   "home": "Home",
   "repo": "Repository",
-  "take_me_home": "Take me home!"
+  "take_me_home": "Take me home!",
+  "workflow_gen_short_desc": "A library that lets to write your GitHub Workflows in JavaScript or Typescript.",
+  "workflow_gen_long_desc": [
+    "Also known as \"gh-workflow-gen\", this is a library I wrote in order to consolidate the complex Workflow steps used in Lyricistant.",
+    "Since Lyricistant builds for multiple platforms, you can imagine that it has a lot of shared build logic steps. GitHub Workflows, at the time I wrote this library, didn't support any sort of sharing of build steps unless you copy-pasted it all over your multiple Workflow files. By creating those same Workflow files via templates created in JS, we can much more easily share those steps.",
+    "There's also a nice little feature that came from writing this library in Typescript; hard-typing for dependencies! This allows you to force that all of your external actions are of the same version."
+  ],
+  "rxcdt_short_desc": "An Kotlin Android library that wraps the CountDownTimer so it can be used with RxJava.",
+  "rxcdt_long_desc": [
+    "A CountDownTimer is a class that exists in the Android libs that will, given an amount of time in the future, will regularly post the amount of time left until the moment of time in the future has come to pass.",
+    "This mostly only exists because way back in 2018, a literal lifetime in Android-land (e.g., when RxJava was still cool and no one cared about Flow), I wanted to use CountDownTimer but with RxJava. I knew at the time that I could easily recreate CountDownTimer with pure RxJava, but for reasons I can't remember, I chose to make this library instead.",
+    "To note: this was before I realized how great the Square Kotlin codestyle is, so it's formatted very weirdly."
+  ]
 }
