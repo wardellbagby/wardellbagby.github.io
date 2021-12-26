@@ -44,8 +44,7 @@ fun ProjectDetails(project: Project, onClick: () -> Unit) {
       gap(rowGap = 0.px, columnGap = 16.px)
       padding(32.px)
       textAlign("left")
-      property("background-color", "var(--card-background-color)")
-      property("border-color", "var(--card-background-color)")
+      property("margin", "calc(var(--spacing) * 2) 0")
     }
   }
   val iconStyles: StyleBuilder.() -> Unit = remember {
@@ -53,9 +52,9 @@ fun ProjectDetails(project: Project, onClick: () -> Unit) {
       gridArea(clickIconGridArea)
       width(0.px)
       height(0.px)
-      property("border-top", "24px solid transparent")
-      property("border-left", "12px solid var(--color)")
-      property("border-bottom", "24px solid transparent")
+      property("border-top", "16px solid transparent")
+      property("border-left", "8px solid var(--color)")
+      property("border-bottom", "16px solid transparent")
       property("margin", auto)
     }
   }
