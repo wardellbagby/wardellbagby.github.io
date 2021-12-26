@@ -1,5 +1,8 @@
+package com.wardellbagby.web.projects
+
 import androidx.compose.runtime.Composable
 import com.wardellbagby.web.LocalTextResources
+import com.wardellbagby.web.getSelfImageURL
 
 data class Project(
   val name: String,
@@ -35,6 +38,19 @@ fun getProjects(): List<Project> {
       imageUrl = getSelfImageURL(),
       shortDescription = LocalTextResources.current["wardellbagby_short_desc"],
       longDescription = LocalTextResources.current["wardellbagby_long_desc"],
+    ),
+    Project(
+      name = "GitHub Workflow Generator",
+      repo = "https://github.com/wardellbagby/gh-workflow-gen",
+      url = "https://www.npmjs.com/package/@wardellbagby/gh-workflow-gen",
+      shortDescription = LocalTextResources.current["workflow_gen_short_desc"],
+      longDescription = LocalTextResources.current["workflow_gen_long_desc"],
+    ),
+    Project(
+      name = "RxCountDownTimer",
+      repo = "https://github.com/wardellbagby/RxCountDownTimer",
+      shortDescription = LocalTextResources.current["rxcdt_short_desc"],
+      longDescription = LocalTextResources.current["rxcdt_long_desc"],
     )
   )
 }

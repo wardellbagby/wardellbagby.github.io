@@ -2,11 +2,11 @@ package com.wardellbagby.web.home
 
 import androidx.compose.runtime.Composable
 import com.wardellbagby.web.LocalTextResources
+import com.wardellbagby.web.getSelfImageURL
 import com.wardellbagby.web.projects.ProjectDetails
+import com.wardellbagby.web.projects.getProjects
 import com.wardellbagby.web.projects.goToProjectPage
 import com.wardellbagby.web.router.goTo
-import getProjects
-import getSelfImageURL
 import org.jetbrains.compose.web.css.DisplayStyle.Companion.Flex
 import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.borderRadius

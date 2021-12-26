@@ -1,12 +1,10 @@
 package com.wardellbagby.web.projects
 
-import Project
 import androidx.compose.runtime.Composable
 import com.wardellbagby.web.HGroup
 import com.wardellbagby.web.LocalTextResources
 import com.wardellbagby.web.Unknown
 import com.wardellbagby.web.router.goTo
-import getProjects
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.AlignItems

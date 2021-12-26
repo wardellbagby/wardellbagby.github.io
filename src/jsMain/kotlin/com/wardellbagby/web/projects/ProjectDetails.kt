@@ -1,6 +1,5 @@
 package com.wardellbagby.web.projects
 
-import Project
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import org.jetbrains.compose.web.css.DisplayStyle
