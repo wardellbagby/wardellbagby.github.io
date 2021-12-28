@@ -10,6 +10,7 @@ import androidx.compose.runtime.setValue
 import kotlinx.browser.window
 import org.w3c.dom.events.Event
 import org.w3c.dom.url.URL
+import kotlin.js.json
 
 external fun decodeURIComponent(value: String): String
 external fun encodeURIComponent(value: String): String
@@ -19,8 +20,10 @@ private fun String.urlDecode() = decodeURIComponent(this)
 
 typealias Params = Map<String, String>
 
+private fun String.isEmptyHash() = removePrefix("#").isBlank()
+
 private fun String.toParams(): Params {
-  if (length < 2) {
+  if (isEmptyHash()) {
     return emptyMap()
   }
 
@@ -59,12 +62,12 @@ fun Router(
   defaultParams: Params = emptyMap(),
   children: @Composable (currentPath: String, params: Map<String, String>) -> Unit
 ) {
-  var currentPath by remember { mutableStateOf(window.location.hash) }
-  var currentParams by remember { mutableStateOf(emptyMap<String, String>()) }
+  var currentPath by remember { mutableStateOf(defaultPath) }
+  var currentParams by remember { mutableStateOf(defaultParams) }
 
   LaunchedEffect(window.location.hash) {
-    if (window.location.hash.length < 2) {
-      console.log("Setting hash to default")
+    if (window.location.hash.isEmptyHash()) {
+      console.log("Setting path to default")
       val newUrl = URL(defaultPath.pathToHash(defaultParams), base = window.location.origin)
 
       currentPath = defaultPath
@@ -80,7 +83,10 @@ fun Router(
       currentPath = path
       currentParams = params
 
-      console.log(currentPath, currentParams.toString())
+      console.log(
+        "Updating path from hash change",
+        json("newPath" to currentPath, "newParams" to currentParams.toString())
+      )
     }
     window.addEventListener("hashchange", listener)
     listener(null)
