@@ -41,22 +41,18 @@ fun Unknown() {
   LaunchedEffect("duck") {
     duckState = Loading
 
-    duckState = try {
-      val result = window.fetch(imageEndpoint).await()
+    val result = window.fetch(imageEndpoint).await()
 
-      if (result.ok) {
-        val response = result.json().await().unsafeCast<Json>()
-        val url = response["url"]
-        if (url != null && url is String) {
-          Loaded(url)
-        } else {
-          Failure
-        }
+    duckState = if (result.ok) {
+      val response = result.json().await().unsafeCast<Json>()
+      val url = response["url"]
+
+      if (url != null && url is String) {
+        Loaded(url)
       } else {
         Failure
       }
-    } catch (e: Throwable) {
-      console.error(e)
+    } else {
       Failure
     }
   }
