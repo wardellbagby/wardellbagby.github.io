@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.wardellbagby.web.HGroup
 import com.wardellbagby.web.LocalTextResources
 import com.wardellbagby.web.home.goToHomePage
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.flexGrow
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.width
@@ -45,6 +46,13 @@ fun Header() {
             classes("secondary")
             onClick { goToHomePage() }
           }) { Text(LocalTextResources.current["home"]) }
+        }
+
+        Li {
+          Button({
+            classes("secondary")
+            onClick { window.open("https://dev.to/wardellbagby", target = "blank") }
+          }) { Text(LocalTextResources.current["blog"]) }
         }
       }
     }

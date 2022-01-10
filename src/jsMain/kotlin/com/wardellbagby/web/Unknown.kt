@@ -6,12 +6,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.wardellbagby.web.DuckLoadState.Failure
-import com.wardellbagby.web.DuckLoadState.Loaded
-import com.wardellbagby.web.DuckLoadState.Loading
-import com.wardellbagby.web.DuckLoadState.NotStarted
+import com.wardellbagby.web.networking.LoadState
+import com.wardellbagby.web.networking.LoadState.Failure
+import com.wardellbagby.web.networking.LoadState.Loaded
+import com.wardellbagby.web.networking.LoadState.Loading
+import com.wardellbagby.web.networking.LoadState.NotStarted
 import kotlinx.browser.window
 import kotlinx.coroutines.await
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.decodeFromDynamic
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.display
@@ -22,38 +27,40 @@ import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.Section
 import org.jetbrains.compose.web.dom.Text
-import kotlin.js.Json
-
-private sealed class DuckLoadState {
-  object NotStarted : DuckLoadState()
-  object Loading : DuckLoadState()
-  data class Loaded(val url: String) : DuckLoadState()
-  object Failure : DuckLoadState()
-}
 
 private const val imageEndpoint = "https://random.dog/woof.json?filter=mp4,webm"
 
+@Serializable
+data class DuckResponse(val url: String?)
+
+@OptIn(ExperimentalSerializationApi::class)
 @Composable
 fun Unknown() {
-  var duckState: DuckLoadState by remember { mutableStateOf(NotStarted) }
+  var imageUrl: LoadState<String> by remember { mutableStateOf(NotStarted) }
   Section { Text(LocalTextResources.current["unknown_blurb"]) }
 
   LaunchedEffect("duck") {
-    duckState = Loading
+    imageUrl = Loading
 
     val result = window.fetch(imageEndpoint).await()
 
-    duckState = if (result.ok) {
-      val response = result.json().await().unsafeCast<Json>()
-      val url = response["url"]
+    imageUrl = if (result.ok) {
+      val url = Json.decodeFromDynamic<DuckResponse>(result.json().await()).url
 
-      if (url != null && url is String) {
+      if (url != null) {
         Loaded(url)
       } else {
-        Failure
+        Failure("No image url sent!")
       }
     } else {
-      Failure
+      Failure("Failed to get duck image response: ${result.statusText}")
+    }
+  }
+
+  LaunchedEffect(imageUrl) {
+    val state = imageUrl
+    if (state is Failure) {
+      console.error(state.reason)
     }
   }
 
@@ -63,12 +70,12 @@ fun Unknown() {
       justifyContent(JustifyContent.Center)
     }
   }) {
-    when (val state = duckState) {
-      Failure -> Text(LocalTextResources.current["unknown_load_failure"])
+    when (val state = imageUrl) {
+      is Failure -> Text(LocalTextResources.current["unknown_load_failure"])
       Loading, NotStarted -> Img("") {
         attr("aria-busy", "true")
       }
-      is Loaded -> Img(state.url) {
+      is Loaded -> Img(state.data) {
         style {
           maxHeight(400.px)
         }

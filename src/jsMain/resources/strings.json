@@ -41,5 +41,7 @@
     "A CountDownTimer is a class that exists in the Android libs that will, given an amount of time in the future, will regularly post the amount of time left until the moment of time in the future has come to pass.",
     "This mostly only exists because way back in 2018, a literal lifetime in Android-land (e.g., when RxJava was still cool and no one cared about Flow), I wanted to use CountDownTimer but with RxJava. I knew at the time that I could easily recreate CountDownTimer with pure RxJava, but for reasons I can't remember, I chose to make this library instead.",
     "To note: this was before I realized how great the Square Kotlin codestyle is, so it's formatted very weirdly."
-  ]
+  ],
+  "latest_blog_post": "Latest blog post",
+  "blog": "Blog"
 }

@@ -2,6 +2,7 @@ import org.jetbrains.compose.compose
 
 plugins {
   kotlin("multiplatform") version "1.6.10"
+  kotlin("plugin.serialization") version "1.6.10"
   id("org.jetbrains.compose") version "1.0.1"
 }
 
@@ -37,6 +38,7 @@ kotlin {
         implementation(compose.web.core)
         implementation(compose.runtime)
         implementation("org.jetbrains.kotlin-wrappers:kotlin-extensions:1.0.1-pre.284-kotlin-1.6.10")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 
         implementation(npm("@picocss/pico", "1.4.2"))
       }
