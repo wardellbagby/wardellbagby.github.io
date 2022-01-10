@@ -9,7 +9,7 @@ import com.wardellbagby.web.layout.Header
 import com.wardellbagby.web.projects.ProjectPage
 import com.wardellbagby.web.router.Router
 import com.wardellbagby.web.router.SlideOutAnimator
-import org.jetbrains.compose.web.css.padding
+import org.jetbrains.compose.web.css.paddingTop
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Main
 
@@ -21,7 +21,7 @@ fun App() {
   Main({
     classes("container")
     style {
-      padding(24.px)
+      paddingTop(24.px)
     }
   }) {
     Router(defaultPath = "home") { routerPath, routerParams ->
