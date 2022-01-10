@@ -8,8 +8,6 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromDynamic
 import org.w3c.dom.url.URL
-import org.w3c.fetch.RequestInit
-import kotlin.js.json
 
 private val API_ENDPOINT = URL("https://dev.to/api/")
 private fun URL.appendPath(path: String): URL {
@@ -21,7 +19,7 @@ private fun URL.appendPath(path: String): URL {
 
 private fun URL.appendQueryParam(key: String, value: String): URL {
   this.searchParams.append(key, value)
-  return this;
+  return this
 }
 
 @Serializable
@@ -30,6 +28,8 @@ data class Post(
   val id: Int,
   @SerialName("readable_publish_date")
   val publishDate: String,
+  @SerialName("cover_image")
+  val imageUrl: String?,
   val url: String
 )
 
@@ -42,8 +42,7 @@ suspend fun getPosts(count: Int = 5): List<Post> {
       // .appendPath("latest")
       .appendQueryParam("username", "wardellbagby")
       .appendQueryParam("per_page", count.toString())
-      .toString(),
-    RequestInit(method = "GET", headers = json("Accept" to "*/*"))
+      .toString()
   )
     .await()
 

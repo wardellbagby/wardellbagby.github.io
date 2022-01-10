@@ -26,7 +26,9 @@ import org.jetbrains.compose.web.css.JustifyContent
 import org.jetbrains.compose.web.css.borderRadius
 import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.justifyContent
+import org.jetbrains.compose.web.css.maxWidth
 import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.whiteSpace
 import org.jetbrains.compose.web.css.width
 import org.jetbrains.compose.web.dom.Div
@@ -81,7 +83,7 @@ fun HomePage() {
     Text(LocalTextResources.current["home_blurb"])
   }
   if (latestPost != null) {
-    Section {
+    Section({ style { maxWidth(500.px) } }) {
       H3 { Text(LocalTextResources.current["latest_blog_post"]) }
       PostDetails(latestPost) {
         window.open(latestPost.url, target = "blank")
