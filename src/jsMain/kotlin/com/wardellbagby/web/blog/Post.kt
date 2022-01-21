@@ -38,8 +38,7 @@ suspend fun getPosts(count: Int = 5): List<Post> {
   val response = window.fetch(
     API_ENDPOINT
       .appendPath("articles")
-      // TODO adding this makes the resulting URL work in Postman and as a direct URL in Chrome, but not with fetch?
-      // .appendPath("latest")
+      .appendPath("latest")
       .appendQueryParam("username", "wardellbagby")
       .appendQueryParam("per_page", count.toString())
       .toString()
