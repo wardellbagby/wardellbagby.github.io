@@ -25,11 +25,11 @@ fun getProjects(): List<Project> {
       longDescription = LocalTextResources.current["lyricistant_long_desc"]
     ),
     Project(
-      name = "Sea for ListenBrainz",
-      repo = "https://github.com/wardellbagby/sea",
-      imageUrl = "https://github.com/wardellbagby/sea/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png?raw=true",
-      shortDescription = LocalTextResources.current["sea_short_desc"],
-      longDescription = LocalTextResources.current["sea_long_desc"],
+      name = "Sensor Disabler",
+      repo = "https://github.com/wardellbagby/sensor-disabler",
+      imageUrl = "https://raw.githubusercontent.com/wardellbagby/sensor-disabler/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      shortDescription = LocalTextResources.current["sensor_disabler_short_desc"],
+      longDescription = LocalTextResources.current["sensor_disabler_long_desc"]
     ),
     Project(
       name = "wardellbagby.com",
@@ -38,6 +38,13 @@ fun getProjects(): List<Project> {
       imageUrl = getSelfImageURL(),
       shortDescription = LocalTextResources.current["wardellbagby_short_desc"],
       longDescription = LocalTextResources.current["wardellbagby_long_desc"],
+    ),
+    Project(
+      name = "Sea for ListenBrainz",
+      repo = "https://github.com/wardellbagby/sea",
+      imageUrl = "https://github.com/wardellbagby/sea/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png?raw=true",
+      shortDescription = LocalTextResources.current["sea_short_desc"],
+      longDescription = LocalTextResources.current["sea_long_desc"],
     ),
     Project(
       name = "GitHub Workflow Generator",

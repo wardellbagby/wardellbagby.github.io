@@ -11,7 +11,10 @@
   "lyricistant_long_desc": [
     "Lyricistant is a writing app geared toward helping you write lyrics, poetry, or anything else you desire!",
     "Unlike other apps with a focus on rhyming, Lyricistant is first and foremost a writing app. It's made for you to use to write your lyrics, while offering helpful features to keep you in the writing zone.",
-    "This is where I spend most of my free time; thinking of cool new features for this. It's my little baby monorepo. Can you believe an Android, iOS, Web, and Electron app all build out of this one codebase?! That's a difficult problem to solve for one person from scratch!"
+    "This is where I spend most of my free time; thinking of cool new features for this. It's my little baby monorepo. Can you believe an Android, iOS, Web, and Electron app all build out of this one codebase?! That's a difficult problem to solve for one person from scratch!",
+    "Probably the most fun thing about developing it is working on getting all of the various platforms to play together nicely with abstractions that make sense but are also easily extensible. This is made even more difficult when you consider the huge differences between Web, Electron, Android, and iOS but I've (mostly) successfully been able to abstract away platform-specific complexities and keep a fairly large set of core code that just \"works\".",
+    "The biggest downside is that the codebase is unlike most JS codebases so it requires an hour long lecture before you can contribute to it, but slowly and surely, more documentation is being written to help alleviate that for whenever I get my first random contributor to it.",
+    "Maybe that'll be you!"
   ],
   "sea_short_desc": "An excuse to use cool stuff together in a not cool project.",
   "sea_long_desc": [
@@ -25,7 +28,7 @@
     "As far as the website itself, I've got to say it was pretty pleasant to have the power of the Kotlin stdlib when writing it. Jetpack Compose is still wonderful, even with the limitations of Kotlin/JS.",
     "Maybe I'll port this to Workflows/JS whenever that happens."
   ],
-  "projects": "Projects",
+  "projects": "My various projects",
   "website": "Website",
   "home": "Home",
   "repo": "Repository",
@@ -43,5 +46,14 @@
     "To note: this was before I realized how great the Square Kotlin codestyle is, so it's formatted very weirdly."
   ],
   "latest_blog_post": "Latest blog post",
-  "blog": "Blog"
+  "blog": "Blog",
+  "sensor_disabler_short_desc": "An Android app that remove or mocks the values of sensors on your device.",
+  "sensor_disabler_long_desc": [
+    "A long long time ago, when Eclipse had an ADT plugin and Ant wasn't just the wrong pronunciation of Aunt, I was a kid in college. I had a friend who had recently gotten their Nexus 4's screen replaced, but the replaced screen covered the proximity sensor, meaning their screen would immediately turn off whenever they started a phone call.",
+    "Frustrating, I know.",
+    "At the time, I was super into this framework called \"Xposed\", which let you modify any function that was called on your device. Including ones provided by the Android OS... I ended up making an app using that framework to disable their proximity sensor.",
+    "Some time after, I thought \"Hey, I could expand this out to disable any sensor!\" And so I did. Enter Sensor Disabler.",
+    "This app is OLD, but I recently updated it to use all the latest and greatest Android libraries. It's got some Compose, some Flow, some Workflows, some Hilt, and a little bit of View Models. It's also still got some Java kicking around, too. Not to mention the best part: the code that actually hooks into the Android OS to make it all work!",
+    "Reflection might be bad, but it's still so fun to do."
+  ]
 }
