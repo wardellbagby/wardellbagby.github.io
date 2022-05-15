@@ -3,6 +3,7 @@ package com.wardellbagby.web.projects
 import androidx.compose.runtime.Composable
 import com.wardellbagby.web.LocalTextResources
 import com.wardellbagby.web.getSelfImageURL
+import kotlinext.js.require
 
 data class Project(
   val name: String,
@@ -30,6 +31,14 @@ fun getProjects(): List<Project> {
       imageUrl = "https://raw.githubusercontent.com/wardellbagby/sensor-disabler/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
       shortDescription = LocalTextResources.current["sensor_disabler_short_desc"],
       longDescription = LocalTextResources.current["sensor_disabler_long_desc"]
+    ),
+    Project(
+      name = "@wardell_listens",
+      url = "https://twitter.com/wardell_listens",
+      repo = "https://github.com/wardellbagby/wardell_listens",
+      imageUrl = require("./wardell_listens.png") as? String,
+      shortDescription = LocalTextResources.current["wardell_listens_short_desc"],
+      longDescription = LocalTextResources.current["wardell_listens_long_desc"],
     ),
     Project(
       name = "wardellbagby.com",
