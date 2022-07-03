@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.StyleBuilder
+import org.jetbrains.compose.web.css.cursor
 import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.gap
 import org.jetbrains.compose.web.css.gridArea
@@ -33,6 +34,7 @@ private const val clickIconGridArea = "Icon"
 fun ProjectDetails(project: Project, onClick: () -> Unit) {
   val rootStyles: StyleBuilder.() -> Unit = remember {
     {
+      cursor("pointer")
       gridTemplateAreas(
         "$imageGridArea $titleGridArea        $clickIconGridArea",
         "$imageGridArea $descriptionGridArea  $clickIconGridArea"

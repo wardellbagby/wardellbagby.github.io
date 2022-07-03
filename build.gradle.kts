@@ -1,4 +1,5 @@
 import org.jetbrains.compose.compose
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
 
 plugins {
   kotlin("multiplatform") version "1.6.10"
@@ -40,7 +41,7 @@ kotlin {
         implementation("org.jetbrains.kotlin-wrappers:kotlin-extensions:1.0.1-pre.284-kotlin-1.6.10")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 
-        implementation(npm("@picocss/pico", "1.4.2"))
+        implementation(npm("@picocss/pico", "1.5.3"))
       }
     }
     val jsTest by getting {
@@ -49,4 +50,9 @@ kotlin {
       }
     }
   }
+}
+
+// https://stackoverflow.com/questions/72731436/kotlin-multiplatform-gradle-task-jsrun-gives-error-webpack-cli-typeerror-c/72731728
+rootProject.extensions.configure<NodeJsRootExtension> {
+  versions.webpackCli.version = "4.10.0"
 }

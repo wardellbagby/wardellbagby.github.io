@@ -18,9 +18,7 @@ fun Footer() {
     classes("container")
     style {
       textAlign("center")
-      style {
-        property("border-top", "1px solid var(--card-background-color)")
-      }
+      property("border-top", "1px solid var(--card-background-color)")
     }
   }) {
     Aside {
