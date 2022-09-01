@@ -26,11 +26,11 @@ fun getProjects(): List<Project> {
       longDescription = LocalTextResources.current["lyricistant_long_desc"]
     ),
     Project(
-      name = "Sensor Disabler",
-      repo = "https://github.com/wardellbagby/sensor-disabler",
-      imageUrl = "https://raw.githubusercontent.com/wardellbagby/sensor-disabler/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
-      shortDescription = LocalTextResources.current["sensor_disabler_short_desc"],
-      longDescription = LocalTextResources.current["sensor_disabler_long_desc"]
+      name = "Deltas",
+      repo = "https://github.com/wardellbagby/deltas",
+      imageUrl = "https://raw.githubusercontent.com/wardellbagby/deltas/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      shortDescription = LocalTextResources.current["deltas_short_desc"],
+      longDescription = LocalTextResources.current["deltas_long_desc"]
     ),
     Project(
       name = "@wardell_listens",
@@ -39,6 +39,13 @@ fun getProjects(): List<Project> {
       imageUrl = require("./wardell_listens.png") as? String,
       shortDescription = LocalTextResources.current["wardell_listens_short_desc"],
       longDescription = LocalTextResources.current["wardell_listens_long_desc"],
+    ),
+    Project(
+      name = "Sensor Disabler",
+      repo = "https://github.com/wardellbagby/sensor-disabler",
+      imageUrl = "https://raw.githubusercontent.com/wardellbagby/sensor-disabler/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      shortDescription = LocalTextResources.current["sensor_disabler_short_desc"],
+      longDescription = LocalTextResources.current["sensor_disabler_long_desc"]
     ),
     Project(
       name = "wardellbagby.com",

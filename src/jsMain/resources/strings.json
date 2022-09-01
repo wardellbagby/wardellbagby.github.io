@@ -63,5 +63,12 @@
     "Enter @wardell_listens",
     "It's not much, but something neat is that it costs me nothing. It's hosted entirely on GitHub. It uses a GitHub Workflow that runs every Monday morning in order to do the work of fetching my recent listens, figuring out what song to suggest, and then posting it to Twitter.",
     "As much as I use GitHub Actions, I should probably start paying for it or something. But hey, at least all of the code is open source!"
+  ],
+  "deltas_short_desc": "An Android app (and back-end!) for sharing trackers with your friends!",
+  "deltas_long_desc": [
+    "Deltas is an app where you make a tracker, share it with a friend, and when that tracker updates, your friend gets notified.",
+    "My buddy and I have had this running joke for years, where when one of us accidentally writes an infinite loop, we'll text the other and say \"reset my infinite loop tracker.\" Well, one day I decided that joke would be a fun weekend app idea.",
+    "Oh wait, what's that in the distance? It's a bird? It's a plane? It's a...long weekend! Plus, a few extra days thrown in because databases are quite hard.",
+    "And so, this very silly app was born. I'm happy to announce that we now do actually use it for its intended purpose (and tracking how long between our Apex Legends wins), and that's it's been 4.5 days since my last infinite loop (as of 09/05/2022)."
   ]
 }
