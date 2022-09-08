@@ -11,7 +11,8 @@ data class Project(
   val repo: String,
   val imageUrl: String? = null,
   val shortDescription: String,
-  val longDescription: String
+  val longDescription: String,
+  val privacyPolicy: String? = null
 )
 
 @Composable
@@ -30,7 +31,8 @@ fun getProjects(): List<Project> {
       repo = "https://github.com/wardellbagby/deltas",
       imageUrl = "https://raw.githubusercontent.com/wardellbagby/deltas/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
       shortDescription = LocalTextResources.current["deltas_short_desc"],
-      longDescription = LocalTextResources.current["deltas_long_desc"]
+      longDescription = LocalTextResources.current["deltas_long_desc"],
+      privacyPolicy = LocalTextResources.current["deltas_privacy_policy"]
     ),
     Project(
       name = "@wardell_listens",

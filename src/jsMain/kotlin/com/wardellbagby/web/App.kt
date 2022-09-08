@@ -6,6 +6,7 @@ import com.wardellbagby.web.home.HomePage
 import com.wardellbagby.web.intl.TextResources
 import com.wardellbagby.web.layout.Footer
 import com.wardellbagby.web.layout.Header
+import com.wardellbagby.web.privacypolicy.PrivacyPolicy
 import com.wardellbagby.web.projects.ProjectPage
 import com.wardellbagby.web.router.Router
 import com.wardellbagby.web.router.SlideOutAnimator
@@ -29,6 +30,7 @@ fun App() {
         when (path) {
           "home" -> HomePage()
           "project" -> ProjectPage(params)
+          "privacy-policy" -> PrivacyPolicy(params)
           else -> Unknown()
         }
       }

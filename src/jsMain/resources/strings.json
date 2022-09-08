@@ -70,5 +70,6 @@
     "My buddy and I have had this running joke for years, where when one of us accidentally writes an infinite loop, we'll text the other and say \"reset my infinite loop tracker.\" Well, one day I decided that joke would be a fun weekend app idea.",
     "Oh wait, what's that in the distance? It's a bird? It's a plane? It's a...long weekend! Plus, a few extra days thrown in because databases are quite hard.",
     "And so, this very silly app was born. I'm happy to announce that we now do actually use it for its intended purpose (and tracking how long between our Apex Legends wins), and that's it's been 4.5 days since my last infinite loop (as of 09/05/2022)."
-  ]
+  ],
+  "deltas_privacy_policy": "Deltas does not collect any information from its users."
 }
