@@ -25,11 +25,6 @@ fun Footer() {
       Nav {
         Ul {
           Li {
-            A(href = "https://twitter.com/wardellbagby", { target(Blank) }) {
-              Text("Twitter")
-            }
-          }
-          Li {
             A(href = "https://github.com/wardellbagby", { target(Blank) }) {
               Text("GitHub")
             }
@@ -37,6 +32,19 @@ fun Footer() {
           Li {
             A(href = "https://linkedin.com/in/wardellbagby/", { target(Blank) }) {
               Text("LinkedIn")
+            }
+          }
+          Li {
+            A(href = "https://androiddev.social/@wardellbagby", {
+              target(Blank)
+              attr("rel", "me")
+            }) {
+              Text("Mastodon")
+            }
+          }
+          Li {
+            A(href = "https://twitter.com/wardellbagby", { target(Blank) }) {
+              Text("Twitter")
             }
           }
         }
