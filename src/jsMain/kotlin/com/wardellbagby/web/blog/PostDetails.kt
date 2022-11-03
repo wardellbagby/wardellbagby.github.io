@@ -3,7 +3,7 @@ package com.wardellbagby.web.blog
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.StyleBuilder
+import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.cursor
 import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.gridArea
@@ -30,7 +30,7 @@ private const val descriptionGridArea = "Description"
 
 @Composable
 fun PostDetails(post: Post, onClick: () -> Unit) {
-  val rootStyles: StyleBuilder.() -> Unit = remember {
+  val rootStyles: StyleScope.() -> Unit = remember {
     {
       cursor("pointer")
       gridTemplateAreas(

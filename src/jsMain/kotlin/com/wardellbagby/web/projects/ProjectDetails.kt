@@ -3,7 +3,7 @@ package com.wardellbagby.web.projects
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.StyleBuilder
+import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.cursor
 import org.jetbrains.compose.web.css.display
 import org.jetbrains.compose.web.css.gap
@@ -32,7 +32,7 @@ private const val clickIconGridArea = "Icon"
 
 @Composable
 fun ProjectDetails(project: Project, onClick: () -> Unit) {
-  val rootStyles: StyleBuilder.() -> Unit = remember {
+  val rootStyles: StyleScope.() -> Unit = remember {
     {
       cursor("pointer")
       gridTemplateAreas(
@@ -48,7 +48,7 @@ fun ProjectDetails(project: Project, onClick: () -> Unit) {
       property("margin", "calc(var(--spacing) * 2) 0")
     }
   }
-  val iconStyles: StyleBuilder.() -> Unit = remember {
+  val iconStyles: StyleScope.() -> Unit = remember {
     {
       gridArea(clickIconGridArea)
       width(0.px)
