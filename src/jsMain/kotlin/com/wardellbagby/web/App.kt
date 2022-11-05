@@ -18,14 +18,14 @@ val LocalTextResources = compositionLocalOf { TextResources() }
 
 @Composable
 fun App() {
-  Header()
-  Main({
-    classes("container")
-    style {
-      paddingTop(24.px)
-    }
-  }) {
-    Router(defaultPath = "home") { routerPath, routerParams ->
+  Router(defaultPath = "home") { routerPath, routerParams ->
+    Header()
+    Main({
+      classes("container")
+      style {
+        paddingTop(24.px)
+      }
+    }) {
       SlideOutAnimator(routerPath to routerParams) { (path, params) ->
         when (path) {
           "home" -> HomePage()
@@ -35,6 +35,6 @@ fun App() {
         }
       }
     }
+    Footer()
   }
-  Footer()
 }

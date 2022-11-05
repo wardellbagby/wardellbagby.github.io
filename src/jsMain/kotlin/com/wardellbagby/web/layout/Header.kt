@@ -3,7 +3,8 @@ package com.wardellbagby.web.layout
 import androidx.compose.runtime.Composable
 import com.wardellbagby.web.HGroup
 import com.wardellbagby.web.LocalTextResources
-import com.wardellbagby.web.home.goToHomePage
+import com.wardellbagby.web.home.goHome
+import com.wardellbagby.web.router.LocalNavigator
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.flexGrow
 import org.jetbrains.compose.web.css.percent
@@ -20,6 +21,7 @@ import org.jetbrains.compose.web.dom.Header as HeaderElement
 
 @Composable
 fun Header() {
+  val navigator = LocalNavigator.current
   HeaderElement({
     classes("container")
     style {
@@ -44,7 +46,7 @@ fun Header() {
         Li {
           Button({
             classes("secondary")
-            onClick { goToHomePage() }
+            onClick { navigator.goHome() }
           }) { Text(LocalTextResources.current["home"]) }
         }
 

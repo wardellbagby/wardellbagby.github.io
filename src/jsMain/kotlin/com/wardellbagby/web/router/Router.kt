@@ -1,12 +1,16 @@
 package com.wardellbagby.web.router
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.referentialEqualityPolicy
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import kotlinx.browser.document
 import kotlinx.browser.window
 import org.w3c.dom.events.Event
 import org.w3c.dom.url.URL
@@ -43,7 +47,11 @@ private fun Params.toUrlQuery(): String {
   }
 }
 
-private fun String.pathToHash(params: Params = emptyMap()) = "#$this${params.toUrlQuery()}"
+private fun String.pathToHash(params: Params = emptyMap()): String {
+  val prefix = if (this.isBlank()) "" else "#$this"
+  val queryParams = params.toUrlQuery()
+  return "$prefix$queryParams"
+}
 
 private fun String.hashToPath(): Pair<String, Params> {
   val path = removePrefix("#")
@@ -52,8 +60,13 @@ private fun String.hashToPath(): Pair<String, Params> {
   return url.pathname.removePrefix("/") to url.search.toParams()
 }
 
-fun goTo(path: String, params: Params = emptyMap()) {
-  window.location.hash = path.pathToHash(params)
+fun interface Navigator {
+  fun goTo(path: String, params: Map<String, String>)
+  fun goTo(path: String) = goTo(path, emptyMap())
+}
+
+val LocalNavigator = compositionLocalOf(policy = referentialEqualityPolicy()) {
+  Navigator { _, _ -> error("Navigation is not currently available") }
 }
 
 @Composable
@@ -65,14 +78,21 @@ fun Router(
   var currentPath by remember { mutableStateOf(defaultPath) }
   var currentParams by remember { mutableStateOf(defaultParams) }
 
-  LaunchedEffect(window.location.hash) {
-    if (window.location.hash.isEmptyHash()) {
-      console.log("Setting path to default")
-      val newUrl = URL(defaultPath.pathToHash(defaultParams), base = window.location.origin)
+  val navigator: Navigator = remember(defaultPath) {
+    Navigator { path: String, params: Map<String, String> ->
+      if (path == defaultPath) {
+        // We still update the hash to give us an actual update but...
+        window.location.hash = ""
+        // We use replaceState here since an empty hash always adds a "#" symbol.
+        window.history.replaceState(
+          "",
+          document.title,
+          "${window.location.pathname}${params.toUrlQuery()}"
+        )
+      } else {
+        window.location.hash = path.pathToHash(params)
+      }
 
-      currentPath = defaultPath
-      currentParams = defaultParams
-      window.history.replaceState(null, "", newUrl.toString())
     }
   }
 
@@ -80,8 +100,17 @@ fun Router(
     val listener: (Event?) -> Unit = {
       val (path, params) = window.location.hash.hashToPath()
 
-      currentPath = path
-      currentParams = params
+      when {
+        path.isBlank() -> {
+          currentPath = defaultPath
+          currentParams = params
+        }
+
+        else -> {
+          currentPath = path
+          currentParams = params
+        }
+      }
 
       console.log(
         "Updating path from hash change",
@@ -96,5 +125,7 @@ fun Router(
     }
   }
 
-  children(currentPath, currentParams)
+  CompositionLocalProvider(LocalNavigator provides navigator) {
+    children(currentPath, currentParams)
+  }
 }

@@ -18,8 +18,9 @@ import com.wardellbagby.web.networking.LoadState.NotStarted
 import com.wardellbagby.web.networking.dataOrDefault
 import com.wardellbagby.web.projects.ProjectDetails
 import com.wardellbagby.web.projects.getProjects
-import com.wardellbagby.web.projects.goToProjectPage
-import com.wardellbagby.web.router.goTo
+import com.wardellbagby.web.projects.goToProject
+import com.wardellbagby.web.router.LocalNavigator
+import com.wardellbagby.web.router.Navigator
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.DisplayStyle.Companion.Flex
 import org.jetbrains.compose.web.css.JustifyContent
@@ -39,7 +40,7 @@ import org.jetbrains.compose.web.dom.Text
 
 const val HomeRoute = "home"
 
-fun goToHomePage() {
+fun Navigator.goHome() {
   goTo(HomeRoute)
 }
 
@@ -62,6 +63,7 @@ private fun HeroImage() {
 
 @Composable
 fun HomePage() {
+  val navigator = LocalNavigator.current
   val projects = getProjects()
   var postState by remember { mutableStateOf<LoadState<Post?>>(NotStarted) }
 
@@ -94,7 +96,7 @@ fun HomePage() {
     H3 { Text(LocalTextResources.current["projects"]) }
     projects.forEach { project ->
       ProjectDetails(project) {
-        goToProjectPage(project)
+        navigator.goToProject(project)
       }
     }
   }

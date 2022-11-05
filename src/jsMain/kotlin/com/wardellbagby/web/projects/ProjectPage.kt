@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.wardellbagby.web.HGroup
 import com.wardellbagby.web.LocalTextResources
 import com.wardellbagby.web.Unknown
-import com.wardellbagby.web.router.goTo
+import com.wardellbagby.web.router.Navigator
 import org.jetbrains.compose.web.attributes.ATarget
 import org.jetbrains.compose.web.attributes.target
 import org.jetbrains.compose.web.css.AlignItems
@@ -29,7 +29,7 @@ import org.jetbrains.compose.web.dom.Text
 
 const val ProjectRoute = "project"
 
-fun goToProjectPage(project: Project) {
+fun Navigator.goToProject(project: Project) {
   goTo(ProjectRoute, mapOf("name" to project.name))
 }
 
