@@ -35,8 +35,8 @@ fun getProjects(): List<Project> {
       privacyPolicy = LocalTextResources.current["deltas_privacy_policy"]
     ),
     Project(
-      name = "@wardell_listens",
-      url = "https://twitter.com/wardell_listens",
+      name = "@listens@wardell.dev",
+      url = "https://services.wardell.dev/listens",
       repo = "https://github.com/wardellbagby/wardell_listens",
       imageUrl = require("./wardell_listens.png") as? String,
       shortDescription = LocalTextResources.current["wardell_listens_short_desc"],
