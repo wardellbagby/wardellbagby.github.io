@@ -56,13 +56,14 @@
     "This app is OLD, but I recently updated it to use all the latest and greatest Android libraries. It's got some Compose, some Flow, some Workflows, some Hilt, and a little bit of View Models. It's also still got some Java kicking around, too. Not to mention the best part: the code that actually hooks into the Android OS to make it all work!",
     "Reflection might be bad, but it's still so fun to do."
   ],
-  "wardell_listens_short_desc": "A Twitter account that posts new songs every week based on what I've been listening to.",
+  "wardell_listens_short_desc": "A Mastodon and ex-Twitter account that posts new songs every week based on what I've been listening to.",
   "wardell_listens_long_desc": [
     "I'm really into music. Like, really really into music. I'm constantly listening to and I'm often making it. I also have been spending the past almost two years logging every single song that I listen to so that I can go back and see how my tastes have changed as time passes.",
     "With all that data and nothing to (immediately) do with it, I thought of an idea: what if I made a Twitter account that took the songs I'd been listening to the week before, grab one that I listened to the most during that week (I'm super into playing songs I love on repeat until I hate them), and tweeted that out into the void?",
-    "Enter @wardell_listens",
-    "It's not much, but something neat is that it costs me nothing. It's hosted entirely on GitHub. It uses a GitHub Workflow that runs every Monday morning in order to do the work of fetching my recent listens, figuring out what song to suggest, and then posting it to Twitter.",
-    "As much as I use GitHub Actions, I should probably start paying for it or something. But hey, at least all of the code is open source!"
+    "Enter @listens@wardell.dev",
+    "It's not much, but something neat is that it costs me very little; just another Docker container on my server. The code and the logic to find and post songs are hosted entirely on GitHub. It uses a GitHub Workflow that runs every Monday morning in order to do the work of fetching my recent listens, figuring out what song to suggest, and then posting it to its page.",
+    "As much as I use GitHub Actions, I should probably start paying for it or something. But hey, at least all of the code is open source!",
+    "Note: This used to be only a Twitter account but I migrated it to support ActivityPub (and therefore Mastodon and the like) in early 2023 due to Twitter saying they would be removing the free tier of their API. It does support cross-posting to both Twitter and its own site but assuming that the shutdown actually goes through, that'll stop being true pretty soon. Still, I was able to learn a bunch of interesting things about ActivityPub so it was worth it."
   ],
   "deltas_short_desc": "An Android app (and back-end!) for sharing trackers with your friends!",
   "deltas_long_desc": [
