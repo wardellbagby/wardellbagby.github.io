@@ -22,7 +22,7 @@ fun getProjects(): List<Project> {
       name = "Lyricistant",
       url = "https://lyricistant.app",
       repo = "https://github.com/wardellbagby/lyricistant",
-      imageUrl = "https://github.com/wardellbagby/lyricistant/blob/main/packages/renderer/main/about/app_icon.png?raw=true",
+      imageUrl = "https://github.com/wardellbagby/lyricistant/blob/main/apps/mobile/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true",
       shortDescription = LocalTextResources.current["lyricistant_short_desc"],
       longDescription = LocalTextResources.current["lyricistant_long_desc"]
     ),
